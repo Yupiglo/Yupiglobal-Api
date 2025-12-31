@@ -58,6 +58,9 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
+        // Nettoyer l'ID en supprimant les espaces et autres caractères indésirables
+        $id = trim($id);
+        
         $category = Category::find($id);
         if (!$category) {
             return response()->json(['message' => 'category was not found'], 404);
@@ -74,6 +77,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Nettoyer l'ID en supprimant les espaces et autres caractères indésirables
+        $id = trim($id);
+        
         $category = Category::find($id);
         if (!$category) {
             return response()->json(['message' => 'category was not found'], 404);
@@ -104,6 +110,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
+        // Nettoyer l'ID en supprimant les espaces et autres caractères indésirables
+        $id = trim($id);
+        
         $category = Category::find($id);
         if (!$category) {
             return response()->json(['message' => 'category was not found'], 404);
